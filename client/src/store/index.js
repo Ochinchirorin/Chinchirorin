@@ -6,7 +6,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    rollResult: []
+    rollResult: [],
+    roomData:[]
   },
   mutations: {
     login(state, name) {
@@ -26,9 +27,15 @@ export default new Vuex.Store({
       socket.emit('start-game', room)
     }, rollResult(state, result) {
       state.rollResult.push(result)
+    },
+    roomData(state, data) {
+      state.roomData.push(data)
     }
   },
   actions: {
+    roomData(context,data){
+      context.commit('roomData',data)
+    }
   },
   getters: {
   }

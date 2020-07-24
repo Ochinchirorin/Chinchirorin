@@ -36,7 +36,8 @@ io.on('connection', socket => {
         })
     })
     socket.on('start-game', data => {
-        socket.broadcast.to(data).emit('start-game')
+        socket.broadcast.to(data.name).emit('start-game',data)
+        // socket.broadcast.to(data.name).emit('start-game',data)
     })
     socket.on('roll', (name) => {
         socket.emit('result', roll(name))
