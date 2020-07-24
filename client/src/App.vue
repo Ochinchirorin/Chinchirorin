@@ -1,12 +1,27 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">Home</router-link>|
+      <router-link to="/rolls">Play</router-link>|
       <router-link to="/room">Room</router-link>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
+
+<script>
+import io from "socket.io-client";
+
+export default {
+  name: "app",
+  data() {
+    return {
+      rollsResult: [],
+    };
+  },
+};
+</script>
+
 
 <style>
 #app {

@@ -6,23 +6,26 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    rollResult: []
   },
   mutations: {
-    login (state, name) {
+    login(state, name) {
       localStorage.setItem('username', name)
       socket.emit('login', name)
     },
-    joinRoom (state, payload) {
+    joinRoom(state, payload) {
       socket.emit('join-room', payload)
     },
-    logout (state) {
+    logout(state) {
       localStorage.clear()
     },
-    createRoom (state, payload) {
+    createRoom(state, payload) {
       socket.emit('create-room', payload)
     },
-    start (state, room) {
-      socket.emit('start-game', this.room.name)
+    start(state, room) {
+      socket.emit('start-game', room)
+    }, rollResult(state, result) {
+      state.rollResult.push(result)
     }
   },
   actions: {
@@ -30,3 +33,4 @@ export default new Vuex.Store({
   getters: {
   }
 })
+

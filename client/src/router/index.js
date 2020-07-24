@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Room from '../views/Room.vue'
 import Lobby from '../views/Lobby.vue'
+import Rolls from '../views/Rolls.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/lobby/:name',
     name: 'Lobby',
     component: Lobby
+  },
+  {
+    path: '/rolls/:room',
+    name: 'Rolls',
+    component: Rolls
   }
 ]
 
