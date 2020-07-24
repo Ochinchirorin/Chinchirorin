@@ -1,33 +1,39 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import About from "../views/About.vue";
-import Rolls from "../views/Rolls.vue";
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import Home from '../views/Home.vue'
+import Room from '../views/Room.vue'
+import Lobby from '../views/Lobby.vue'
+import Rolls from '../views/Rolls.vue'
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 const routes = [
   {
-    path: "/",
-    name: "Home",
-    component: Home,
+    path: '/',
+    name: 'Home',
+    component: Home
   },
   {
-    path: "/about",
-    name: "About",
-    component: About,
+    path: '/room',
+    name: 'Room',
+    component: Room
   },
   {
-    path: "/rolls",
-    name: "Rolls",
-    component: Rolls,
+    path: '/lobby/:name',
+    name: 'Lobby',
+    component: Lobby
   },
-];
+  {
+    path: '/rolls/:room',
+    name: 'Rolls',
+    component: Rolls
+  }
+]
 
 const router = new VueRouter({
-  mode: "history",
+  mode: 'history',
   base: process.env.BASE_URL,
-  routes,
-});
+  routes
+})
 
-export default router;
+export default router
